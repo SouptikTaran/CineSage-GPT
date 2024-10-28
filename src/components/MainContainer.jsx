@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import VideoBackground from './VideoBackground'
 import VideoTitle from './VideoTitle'
+import { NotificationContainer } from 'react-notifications'
 
 const MainContainer = () => {
     const movies = useSelector(store => store.movies?.nowPlayingMovies)

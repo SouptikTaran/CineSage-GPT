@@ -152,9 +152,8 @@ const Header = () => {
 
               <div
                 id="dropdownHover"
-                className={`${
-                  dropdownOpen ? "block" : "hidden"
-                } absolute mt-2 md:mt-[20vh] right-0 z-10 bg-white divide-x divide-gray-100 rounded-lg shadow w-32 md:w-44 dark:bg-gray-700`}
+                className={`${dropdownOpen ? "block" : "hidden"
+                  } absolute mt-2 md:mt-[20vh] right-0 z-10 bg-white divide-x divide-gray-100 rounded-lg shadow w-32 md:w-44 dark:bg-gray-700`}
               >
                 <ul
                   className="py-2 text-xs md:text-sm text-gray
@@ -170,12 +169,6 @@ const Header = () => {
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      GPT-SEARCH
-                    </a>
                   </li>
                   <li>
                     <a
@@ -189,7 +182,7 @@ const Header = () => {
                     <a
                       href="#"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      onClick={SignOutUser}
+                      onClick={SignOutUser} 
                     >
                       Sign out
                     </a>

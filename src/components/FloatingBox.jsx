@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { NotificationManager } from "react-notifications";
 
 const FloatingBox = ({ isOpen, onClose, trailerUrl, movieDetails }) => {
 
@@ -11,7 +12,10 @@ const FloatingBox = ({ isOpen, onClose, trailerUrl, movieDetails }) => {
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
   }, [onClose]);
-
+  console.log("movieDetails : " , movieDetails)
+  if(!movieDetails) {
+    return null;
+  }
   const handleClickOutside = (event) => {
     if (!event.target.closest(".floating-box-content")) {
       onClose();

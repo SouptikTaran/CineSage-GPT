@@ -1,8 +1,10 @@
 import { IMG_CDN_URL } from "../utils/constants";
 
-const   MovieCard = ({ posterPath, backdropPath, rating , title , onClick }) => {
+const   MovieCard = ({ posterPath, backdropPath, rating , title , onClick , title2 }) => {
     const imagePath = posterPath || backdropPath;
+    title = title || title2
     if (!imagePath) return null;
+    // if(!title) return null
 
     return (
         <div className="relative w-[30vw] md:w-48 flex cursor-pointer" onClick={onClick}>

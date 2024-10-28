@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MovieCard from './MovieCard';
 import { API_OPTIONS } from '../utils/constants';
 import FloatingBox from './FloatingBox';
+import { NotificationContainer } from 'react-notifications';
 
 const MovieList = ({ title, movies, link }) => {
   const [moviesItems, setMovies] = useState(movies);
@@ -34,8 +35,9 @@ const MovieList = ({ title, movies, link }) => {
       const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`, API_OPTIONS);
       const data = await response.json();
       const trailer = data.results.find(video => video.type === 'Trailer');
+      console.log(trailer)
       if (trailer) {
-        
+
         setTrailerUrl(`https://www.youtube.com/embed/${trailer.key}?autoplay=1&&controls=0&loop=1&playlist=${trailer.key}`);
       }
 
@@ -101,7 +103,7 @@ const MovieList = ({ title, movies, link }) => {
       {showFloatingDiv && (
         <div className="fixed top-10 left-[10%] bg-black bg-opacity-75 p-4 shadow-lg rounded-lg z-10 w-[80vw] h-[80vh] overflow-y-auto hide-scrollbar">
           <div className='flex justify-between items-center mb-4'>
-            <h1 className="text-3xl  font-bold font-serif text-white text-center w-full capitalize">{title}</h1>
+            <h1 className="text-3xl  font-bold font-serif text-white text-center w-full capitalize">{title ? title : "not available"}</h1>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -122,7 +124,7 @@ const MovieList = ({ title, movies, link }) => {
                 key={movie.id}
                 posterPath={movie.poster_path}
                 rating={movie.vote_average}
-                title={movie.original_title}
+                title={movie.original_title || movie.original_name}
                 onClick={() => handleCardClick(movie.id)}
               />
             ))}
@@ -159,7 +161,7 @@ const MovieList = ({ title, movies, link }) => {
               key={movie.id}
               posterPath={movie.poster_path}
               rating={movie.vote_average}
-              title={movie.original_title}
+              title={movie.original_title || movie.original_name}
               onClick={() => handleCardClick(movie.id)}
             />
           ))}

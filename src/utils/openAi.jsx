@@ -6,16 +6,8 @@ import LlamaAI from 'llamaai';
 
 const apiToken = openAIKey;
 const llamaAPI = new LlamaAI(apiToken);
+console.log(llamaAPI)
+
+
+
 export default llamaAPI ;
-
-
-// llamaAPI
-//   .run(apiRequestJson)
-//   .then((response) => {
-//     // Process response
-//   })
-//   .catch((error) => {
-//     // Handle errors
-//   });
-
-// export default headers ;

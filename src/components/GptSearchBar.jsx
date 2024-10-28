@@ -58,7 +58,11 @@ const GptSearchBar = () => {
           NotificationManager.success('', 'Request Successful' , 3000);
         }
         )
-        .catch((error) => {NotificationManager.error('Error message', 'Request Unsuccessful', 3000)}
+        .catch((error) => {
+          console.error('Error in llamaAPI run:', error);
+          NotificationManager.error('Error message', 'Request Unsuccessful', 3000)
+
+        }
       )
 
 
